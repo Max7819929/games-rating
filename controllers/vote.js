@@ -10,8 +10,10 @@ async function voteRouteController(req, res) {
         try {
             res.statusCode = 200;
             const body = await parseBody(req);
+            console.log(body)
             const data = JSON.parse(body);
             const rating = createRating(data, config.WEIGHT);
+
 
             const ratingFile = await fs.readFile(config.PATH_TO_RATING_FILE);
             const ratingArray = JSON.parse(ratingFile);
